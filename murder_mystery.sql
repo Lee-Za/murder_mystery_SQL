@@ -1,4 +1,4 @@
--- Solving the murder mystery challenge from: https://mystery.knightlab.com/
+-- Solving the murder mystery challenge from: https://mystery.knightlab.com/ with SQL
 
 -- Asking for crime scene report (date, type of crime and city were given: Jan. 15th 2018, murder in SQL City)
 SELECT * FROM crime_scene_report WHERE date = 20180115 AND type = 'murder' AND city = 'SQL City';
@@ -33,3 +33,11 @@ The membership number on the bag started with "48Z". Only gold members have thos
 The man got into a car with a plate that included "H42W". "
 Annabel: "I saw the murder happen, and I recognized the killer from my gym when I was working out last week on January the 9th."
 */
+
+-- Identifying suspects based on membership-id, gold-membership, checkin-date
+SELECT name FROM get_fit_now_check_in AS checkins JOIN get_fit_now_member AS members ON checkins.membership_id = members.id WHERE checkins.check_in_date = 20180109 AND checkins.membership_id LIKE '48Z%' AND members.membership_status = 'gold'
+/* 2 suspects identified: 
+Joe Garmuska
+Jeremy Bowers
+*/
+
