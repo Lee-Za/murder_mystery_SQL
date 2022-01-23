@@ -41,3 +41,5 @@ Joe Garmuska
 Jeremy Bowers
 */
 
+-- Looking for the suspects driver license
+SELECT * FROM drivers_license WHERE plate_number like "%H42W%"
