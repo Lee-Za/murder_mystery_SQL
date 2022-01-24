@@ -41,5 +41,7 @@ Joe Garmuska
 Jeremy Bowers
 */
 
--- Looking for the suspects driver license
-SELECT * FROM drivers_license WHERE plate_number like "%H42W%"
+-- Looking for the suspect car and their owner
+SELECT name FROM drivers_license JOIN person ON drivers_license.id = person.license_id WHERE drivers_license.plate_number like "%H42W%" AND  drivers_license.gender = 'male' AND person.name LIKE 'J%'       
+--> Jeremy Bowers
+--> Congrats, you found the murderer! But wait, there's more...
